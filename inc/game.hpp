@@ -3,6 +3,7 @@
 
 #include "types.hpp"
 #include "windowsettings.hpp"
+#include "scene.hpp"
 #include <SFML/Graphics/RenderWindow.hpp>
 
 class Game {
@@ -11,7 +12,7 @@ class Game {
         Running, Stopped, Paused
     };*/
  private:
-    sf::RenderWindow window;
+    static sf::RenderWindow window;
     bool is_running;
     sf::Clock clock;
  public:
@@ -25,6 +26,8 @@ class Game {
     void draw();
     void pause();
     void stop();
+    // temporary
+    static sf::RenderTarget& get_window_surface();
 };
 
 #endif

@@ -3,6 +3,7 @@
 #include <SFML/Window/Event.hpp>
 
 #include "windowsettings.hpp"
+#include "registry.hpp"
 
 Game::Game(const WindowSettings &settings) {
     sf::ContextSettings ctx_settings;
@@ -29,6 +30,7 @@ void Game::start() {
         update(time);
         draw();
     }
+
 }
 
 void Game::process_input() {
@@ -50,17 +52,18 @@ void Game::process_input() {
     window.close();
 }
 
-void Game::update(float dt) {
-}
+void Game::update(float dt) {}
 
-void Game::resize(u32 width, u32 height) {
+void Game::resize(u32 width, u32 height) {}
 
-}
+void Game::draw() {}
 
 void Game::pause() {
-    //running_state = Paused;
+    // running_state = Paused;
 }
 
-void Game::stop() {
-    is_running = false;
+void Game::stop() { is_running = false; }
+
+sf::RenderTarget& Game::get_window_surface() {
+    return window;
 }
